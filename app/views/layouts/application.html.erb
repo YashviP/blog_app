@@ -10,13 +10,32 @@
   </head>
 
   <body>
-    <div class="container">
-      <%if notice %>
-          <div class ="alert alert-info"> <%= notice %></div> 
-      <% end %>
-      <%if alert %>
-          <div class ="alert alert-warning"> <%= alert %></div> 
-      <% end %>
-    <%= yield %>
+      <nav class="navbar">
+        <a class="navbar-brand" style="color: white;" href="/">Blogify</a>
+          <form class="form-inline">
+            <% if user_signed_in? %> :class => "btn btn-outline-primary"
+
+
+            <% else %>
+             <%= link_to "Sign up" , new_user_registration_path , :class => "btn btn-outline-primary" , :style =>"color:white;" %>  
+            <div style="padding-left: 10px;">
+              <%= link_to "Login" , new_user_session_path , :class => "btn btn-outline-primary" , :style=> "color: white" %>
+            </div>
+            <% end %>
+          </form>
+      </nav>
+    <div class="starter-template">
+      <div class="container">
+        <%if notice %><div class ="alert alert-info"> <%= notice %></div> 
+        <% end %>
+        <%if alert %><div class ="alert alert-warning"> <%= alert %></div> 
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
+
+
+   

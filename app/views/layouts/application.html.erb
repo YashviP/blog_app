@@ -14,7 +14,7 @@
         <a class="navbar-brand" style="color: white;" href="/">Blogify</a>
           <form class="form-inline">
             <% if user_signed_in? %> :class => "btn btn-outline-primary"
-
+              <%= link_to "Logout" , destroy_user_session_path,method: :delete %>
 
             <% else %>
              <%= link_to "Sign up" , new_user_registration_path , :class => "btn btn-outline-primary" , :style =>"color:white;" %>  

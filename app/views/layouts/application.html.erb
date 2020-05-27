@@ -14,9 +14,10 @@
         <a class="navbar-brand" style="color: white;" href="/">Blogify</a>
           <form class="form-inline">
             <% if user_signed_in? %> 
-             <li><%= link_to 'Profile', edit_user_registration_path %></li>
-            
-            <li><%= link_to 'Logout', destroy_user_session_path, :method=> :delete %><li>
+             <%= link_to  edit_user_registration_path do %>
+                 <span class="fa fa-user-circle" style="font-size: 1.85rem; color: white;margin-right: 25px"> 
+            <% end %>
+            <%= link_to '', destroy_user_session_path, :method=> :delete, class: "fas fa-sign-out-alt",:style=>"font-size: 1.85rem; color: white;margin-right: 25px" %>
 
             <% else %>
               <%= link_to "Sign up" , new_user_registration_path , :class => "btn btn-outline-primary" , :style =>"color:white;" %>  

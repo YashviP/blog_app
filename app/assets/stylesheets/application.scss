@@ -4,3 +4,21 @@
 .navbar{
 	background-color: #283e4a;
 }
+.signup_container {
+  padding: 70px;
+  width: 40%;
+  left: 30%;
+  right: 30%;
+  top:  15%;
+  down: 25%;
+  height: auto;
+  position: absolute;
+
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.14);
+
+}
+
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}

@@ -8,8 +8,7 @@ class User < ApplicationRecord
   	validates :mobile_number,:presence => true,format: {:with => /^[^0-1][0-9]{9}$/ ,:multiline => true };
   	#The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?
                  
-  	validates :email ,format: { with: URI::MailTo::EMAIL_REGEXP } 
-
+  
   	
 
 end

@@ -1,17 +1,61 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div style="margin-left:60px;"> 
+        <% if user_signed_in? %>
+          <% if current_user.profile_image.attached? %>
+              <%= image_tag(current_user.profile_image,:class=> "image_edit")%>
+      
+          <% else %>
+              <%= image_tag("https://p7.hiclipart.com/preview/749/84/910/chef-cooking-vector-chef-hat.jpg", size: "100x100",style: "float:left;margin:20px;border-radius: 100px;" ) %>
+          <% end %>
+        <% else %>
+          <% if current_user.profile_image.attached? %>
+              <%= image_tag(current_user.profile_image,:class=> "image_edit")%>
+      
+          <% else %>
+              <%= image_tag("https://p7.hiclipart.com/preview/749/84/910/chef-cooking-vector-chef-hat.jpg", size: "100x100",style: "float:left;margin:20px;border-radius: 100px;" ) %>
+          <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <% end %>
+      </div>
+       <h3 style="margin-left:65px;color:#8e2731; ">Edit profile Image<br></h3>
+      <div class="form-group", style="margin-left: 70px;">
+       
+       <%= f.file_field :profile_image %>
+      </div>
+   <div class="form-group">
+      <%= f.input :first_name, autofocus: true, autocomplete: "first_name" %>
+    </div>
 
+    <div class="form-group">
+      <%= f.input :middle_name, autofocus: true, autocomplete: "middle_name" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :last_name, autofocus: true, autocomplete: "last_name" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :email, autofocus: true, autocomplete: "email" ,required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :mobile_number, autofocus: true, autocomplete: "mobile_number" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :gender %><br />
+      <%= f.collection_radio_buttons :gender, [[0, 'Male'], [1, 'Female']], :first, :last %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :Birth_Date %><br/>
+      <%= f.input_field :birth_date,start_year: Time.now.year - 100,end_year: Time.now.year - 18,order: %i(day month year) %>
+      <br>
+    </div>
+    
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>

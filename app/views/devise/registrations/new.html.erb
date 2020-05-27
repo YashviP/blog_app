@@ -35,7 +35,13 @@
       <%= f.input_field :birth_date,start_year: Time.now.year - 100,end_year: Time.now.year - 18,order: %i(day month year) %>
       <br>
     </div>
+
+   <h4> Add Profile Image (optional)</h4>
+    <div class="form-group">
+       <%= f.file_field :profile_image %>
+    </div>
     
+
     <div class="form-group">
       <%= f.input :password, autocomplete: "new-password" , required: true %>
     </div>

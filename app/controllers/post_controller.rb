@@ -8,7 +8,11 @@ class PostController < ApplicationController
 	end
 
 	def new
+
+		
 		@post=current_user.post.new
+	
+		
 	end
 
 	def create
@@ -44,7 +48,7 @@ class PostController < ApplicationController
 
 
 	private def post_params
-		params.require(:post).permit(:content)
+		params.require(:post).permit(:content,image_upload: [])
 	end
 
 end

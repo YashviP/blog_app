@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -14,10 +15,13 @@
         <a class="navbar-brand" style="color: white;" href="/"><h3><b>Blogify</b></h3></a>
           <form class="form-inline">
             <% if user_signed_in? %> 
+    
+           
 
             <%= link_to  new_post_path do %>
                  <span class="far fa-edit" style="font-size: 1.85rem; color: white;margin-right: 25px"> 
             <% end %>
+            
 
              <%= link_to  edit_user_registration_path do %>
                  <span class="fa fa-user-circle" style="font-size: 1.85rem; color: white;margin-right: 25px"> 

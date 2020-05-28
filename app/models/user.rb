@@ -9,6 +9,7 @@ class User < ApplicationRecord
   	#The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?
                  
     has_one_attached :profile_image
+    has_many :post
   	
 
 end

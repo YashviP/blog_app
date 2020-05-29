@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+        <h4 class="modal-title" id="exampleModalLabel" style = "padding-left:; 10px;">Create a post</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -10,17 +10,49 @@
       <div class="modal-body">
       <%= simple_form_for :post , url: post_index_path ,remote: true do |f| %>
          <div class="form-inputs">
-            <%= f.label :Create_a_post %><br>
-               <%= f.text_area(:content, {:class => 'form-control', :rows => "10"})%>
+               <%= f.text_area(:content, {:class => 'form-control', :rows => "10",:placeholder => "what do you want to talk about ?" , :style => "padding:20px;",:id => "placeholder-size"})%>
             
-              <%= f.file_field :image_upload ,:multiple => true%>
-          </div>
+              <div class="image-upload">
+                <label for="file-input">
+                   <span class="fas fa-camera", style="font-size:25px;margin-right:40px;margin-top:15px;color: gray;margin-left: 2px;"></span>
+                </label>
 
-   <div class="modal-footer">
-    <%= f.submit(:save , {:class => 'btn btn-primary'})%>
-  
+                <%= f.file_field :image_upload, id:"file-input" ,:multiple => true  %>
+
+                <label for="file-input">
+                   <span class="fas fa-video", style="font-size:25px;margin-right:40px;margin-top:15px;color: gray;"></span>
+                </label>
+
+                <%= f.file_field :image_upload, id:"file-input" ,:multiple => true %>
+
+                 <label for="file-input">
+                   <span class="fas fa-file-upload", style="font-size:25px;margin-right: 520px;margin-top:15px;color: gray;">
+                                      </span>    <%= f.submit("upload" , {:class => 'btn btn-primary',:style=> "float: right;margin-top: 15px;",:label=> "upload"})%>
+
+                </label>
+
+
+
+                
+              </div>
+
+             
+
+            </div>
+
+             
+
+
+
+              
+              
+        </div>
+
+         
+           
+    
         <% end %>
-      </div>
+
     </div>
   </div>
 </div>

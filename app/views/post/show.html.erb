@@ -1,4 +1,6 @@
 <p><%= @post.content %></p>
-<%  (0...@post.image_upload.count).each do |image|%>
-	<%= image_tag(@post.image_upload[image]) %>
+<%  @post.image_upload.each do |image|%>
+
+	<%= image_tag(image)%>
 <% end %>
+

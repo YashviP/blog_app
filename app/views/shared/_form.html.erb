@@ -1,3 +1,34 @@
+<html>
+<head>
+  <script>
+$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
+});
+
+</script>
+  </head>
+<body>
 <div class="modal fade bd-example-modal-lg"tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
@@ -10,49 +41,23 @@
       <div class="modal-body">
       <%= simple_form_for :post , url: post_index_path ,remote: true do |f| %>
          <div class="form-inputs">
-               <%= f.text_area(:content, {:class => 'form-control', :rows => "10",:placeholder => "what do you want to talk about ?" , :style => "padding:20px;",:id => "placeholder-size"})%>
-            
-              <div class="image-upload">
-                <label for="file-input">
-                   <span class="fas fa-camera", style="font-size:25px;margin-right:40px;margin-top:15px;color: gray;margin-left: 2px;"></span>
-                </label>
+               <%= f.text_area(:content, {:class => 'form-control', :rows => "10",:placeholder => "what do you want to talk about ?" , :style => "padding:20px;border:0;",:id => "placeholder-size"})%>
+                    
+            <div class="gallery"></div>
 
-                <%= f.file_field :image_upload, id:"file-input" ,:multiple => true  %>
+          </div>
 
-                <label for="file-input">
-                   <span class="fas fa-video", style="font-size:25px;margin-right:40px;margin-top:15px;color: gray;"></span>
-                </label>
-
-                <%= f.file_field :image_upload, id:"file-input" ,:multiple => true %>
-
-                 <label for="file-input">
-                   <span class="fas fa-file-upload", style="font-size:25px;margin-right: 520px;margin-top:15px;color: gray;">
-                                      </span>    <%= f.submit("upload" , {:class => 'btn btn-primary',:style=> "float: right;margin-top: 15px;",:label=> "upload"})%>
-
-                </label>
-
-
-
-                
-              </div>
-
-             
-
-            </div>
-
-             
-
-
-
-              
-              
-        </div>
-
-         
-           
+          <%= f.file_field :image_upload, id: "gallery-photo-add",multiple: true %>
+          
+          <%= f.submit("upload" , {:class => 'btn btn-primary',:style=> "float: right;margin-top: 15px;",:label=> "upload"})%>
     
-        <% end %>
+       <% end %>
 
     </div>
   </div>
 </div>
+
+</body>
+</html>
+
+

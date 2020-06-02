@@ -7,12 +7,8 @@ class PostController < ApplicationController
 		@post=current_user.post.find(params[:id])
 	end
 
-	def new
-
-		
+	def new	
 		@post=current_user.post.new
-	
-		
 	end
 
 	def create

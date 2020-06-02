@@ -31,6 +31,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '1.4.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
+  gem 'faker'
 end
 
 group :development do
@@ -65,3 +67,6 @@ gem 'font-awesome-sass', '~> 5.12.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'responders'
 gem 'popper_js', '~> 1.14.5'
+gem 'pg_search'
+gem 'jquery-ui-rails'
+gem 'rails-jquery-autocomplete'

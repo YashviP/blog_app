@@ -1,0 +1,12 @@
+<% if @search_users %>
+  <% if  @search_users.length() == 0 %>
+    <h1> empty </h1>
+   <% else %>
+
+	<% @search_users.each do |u| %>
+   		<%= u.id %>
+	<% end %>
+	<% end %>
+<% else%>
+    <h1> empty </h1>
+<% end %>

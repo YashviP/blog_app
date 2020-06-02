@@ -29,8 +29,8 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-              <%= form_tag(dashboard_search_path, method: 'get',class: "form-inline my-2 my-lg-0") do %>
-                <%= text_field_tag(:search, params[:search],class: "form-control mr-sm-2" ,id: "search",autocomplete_source: User.pluck(:first_name).to_json, html: { autocomplete: "off" })%>
+              <%= form_tag(search_path, method: 'get',class: "form-inline my-2 my-lg-0") do %>
+                <%= text_field_tag(:search,params[:search],class: "form-control mr-sm-2" ,id: "search", html: { autocomplete: "off" })%>
                 <%= submit_tag("Search", name: nil,class: "btn btn-outline-primary" , :style =>"color:white;") %>
               <% end %>
 
